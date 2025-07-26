@@ -3,7 +3,7 @@ const axios = require("axios");
 class MetisAIService {
   constructor() {
     this.apiKey = process.env.METIS_API_KEY;
-    this.baseURL = process.env.METIS_BASE_URL || "https://api.metisai.ir/v1";
+    this.baseURL = process.env.METIS_BASE_URL || "https://api.metisai.ir";
     
     if (!this.apiKey) {
       console.warn("METIS_API_KEY not found in environment variables");
@@ -19,14 +19,14 @@ class MetisAIService {
     });
   }
 
-  async generateCompletion({ systemPrompt, userPrompt, model = "gpt-4o-mini", maxTokens = 1000, temperature = 0.7 }) {
+  async generateCompletion({ systemPrompt, userPrompt, model = "gpt-3.5-turbo", maxTokens = 1000, temperature = 0.7 }) {
     try {
       const messages = [
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt }
       ];
 
-      const response = await this.client.post("/chat/completions", {
+      const response = await this.client.post("/v1/chat/completions", {
         model,
         messages,
         max_tokens: maxTokens,
@@ -47,9 +47,9 @@ class MetisAIService {
     }
   }
 
-  async generateChatCompletion({ messages, model = "gpt-4o-mini", maxTokens = 1000, temperature = 0.7 }) {
+  async generateChatCompletion({ messages, model = "gpt-3.5-turbo", maxTokens = 1000, temperature = 0.7 }) {
     try {
-      const response = await this.client.post("/chat/completions", {
+      const response = await this.client.post("/v1/chat/completions", {
         model,
         messages,
         max_tokens: maxTokens,
