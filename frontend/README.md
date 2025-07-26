@@ -1,218 +1,218 @@
-# Zero Code AI Tools - Frontend Test Interface
+# ابزارهای هوش مصنوعی Zero Code - رابط تست فرانت‌اند
 
-A simple web interface for testing the Zero Code AI Tools backend API endpoints.
+یک رابط وب ساده برای تست نقاط پایانی API بک‌اند ابزارهای هوش مصنوعی Zero Code.
 
-## Overview
+## نمای کلی
 
-This frontend provides an interactive test interface for all 14 AI tools available in the backend. It's built with vanilla HTML, CSS, and JavaScript for simplicity and ease of use.
+این فرانت‌اند یک رابط تست تعاملی برای تمام 14 ابزار هوش مصنوعی موجود در بک‌اند فراهم می‌کند. این رابط با HTML، CSS و JavaScript خالص برای سادگی و سهولت استفاده ساخته شده است.
 
-## Features
+## ویژگی‌ها
 
-- **Interactive Tool Selection**: Click on any tool card to select and configure it
-- **Dynamic Forms**: Each tool has its own form with appropriate input fields
-- **Real-time Testing**: Submit requests and see results in real-time
-- **Responsive Design**: Works on desktop and mobile devices
-- **Persian/Farsi Support**: Right-to-left layout with Persian text
-- **Error Handling**: Clear error messages and validation feedback
+- **انتخاب ابزار تعاملی**: برای انتخاب و پیکربندی هر ابزار، روی کارت آن کلیک کنید
+- **فرم‌های پویا**: هر ابزار فرم مخصوص به خود را با فیلدهای ورودی مناسب دارد
+- **تست بلادرنگ**: درخواست‌ها را ارسال کرده و نتایج را به صورت بلادرنگ مشاهده کنید
+- **طراحی واکنش‌گرا**: در دستگاه‌های دسکتاپ و موبایل کار می‌کند
+- **پشتیبانی از فارسی**: چیدمان راست به چپ با متن فارسی
+- **مدیریت خطا**: پیام‌های خطای واضح و بازخورد اعتبارسنجی
 
-## Available Tools
+## ابزارهای موجود
 
-The interface includes forms for testing these AI tools:
+این رابط شامل فرم‌هایی برای تست این ابزارهای هوش مصنوعی است:
 
-1. **Job Title Optimization** (بهینه‌سازی عنوان شغلی)
-2. **Job Description Builder** (سازنده شرح شغل)
-3. **Chat Assistant** (دستیار چت هوشمند)
-4. **Sentiment Analysis** (تحلیل احساسات)
+1. **بهینه‌سازی عنوان شغلی**
+2. **سازنده شرح شغل**
+3. **دستیار چت هوشمند**
+4. **تحلیل احساسات**
 
-*Note: Additional tools can be easily added by extending the `tools` array in the JavaScript code.*
+*توجه: ابزارهای اضافی را می‌توان به راحتی با گسترش آرایه `tools` در کد JavaScript اضافه کرد.*
 
-## Setup
+## راه‌اندازی
 
-### Prerequisites
-- A running instance of the Zero Code AI Tools backend
-- Python 3 (for the simple HTTP server)
+### پیش‌نیازها
+- یک نمونه در حال اجرا از بک‌اند ابزارهای هوش مصنوعی Zero Code
+- Python 3 (برای سرور HTTP ساده)
 
-### Running the Interface
+### اجرای رابط
 
-1. **Navigate to the frontend directory**:
+1. **به دایرکتوری فرانت‌اند بروید**:
    ```bash
    cd frontend
    ```
 
-2. **Start the HTTP server**:
+2. **سرور HTTP را راه‌اندازی کنید**:
    ```bash
    npm start
-   # or
+   # یا
    python3 -m http.server 8080
    ```
 
-3. **Open in browser**:
+3. **در مرورگر باز کنید**:
    ```
    http://localhost:8080
    ```
 
-### Configuration
+### پیکربندی
 
-The API base URL is configured in the JavaScript code:
+URL پایه API در کد JavaScript پیکربندی شده است:
 
 ```javascript
 const API_BASE_URL = 'http://localhost:3000/api/ai-tools';
 ```
 
-Update this URL if your backend is running on a different host or port.
+اگر بک‌اند شما روی میزبان یا پورت دیگری اجرا می‌شود، این URL را به‌روزرسانی کنید.
 
-## Usage
+## استفاده
 
-### Testing an AI Tool
+### تست یک ابزار هوش مصنوعی
 
-1. **Select a Tool**: Click on any tool card in the grid
-2. **Fill the Form**: Complete the required fields (marked with *)
-3. **Submit Request**: Click "ارسال درخواست" (Submit Request)
-4. **View Results**: Results will appear automatically when processing is complete
+1. **انتخاب یک ابزار**: روی هر کارت ابزار در شبکه کلیک کنید
+2. **پر کردن فرم**: فیلدهای مورد نیاز را تکمیل کنید (با * مشخص شده‌اند)
+3. **ارسال درخواست**: روی "ارسال درخواست" کلیک کنید
+4. **مشاهده نتایج**: نتایج به صورت خودکار پس از اتمام پردازش ظاهر می‌شوند
 
-### Form Fields
+### فیلدهای فرم
 
-Each tool has specific input fields:
+هر ابزار فیلدهای ورودی خاص خود را دارد:
 
-#### Job Title Optimization
-- Current Job Title (required)
-- Industry (required)
-- Experience Level (dropdown: Beginner, Intermediate, Advanced, Senior)
-- Location Type (dropdown: On-site, Remote, Hybrid)
-- Keywords (optional)
+#### بهینه‌سازی عنوان شغلی
+- عنوان شغلی فعلی (اجباری)
+- صنعت (اجباری)
+- سطح تجربه (کشویی: مبتدی، متوسط، پیشرفته، ارشد)
+- نوع مکان (کشویی: حضوری، دورکاری، ترکیبی)
+- کلمات کلیدی (اختیاری)
 
-#### Job Description Builder
-- Job Title (required)
-- Company Name (required)
-- Location (required)
-- Job Type (dropdown: Full-time, Part-time, Project-based, Contract)
-- Required Experience in years (required)
-- Key Skills (textarea, required)
-- Additional Responsibilities (textarea, optional)
-- Benefits (textarea, optional)
+#### سازنده شرح شغل
+- عنوان شغل (اجباری)
+- نام شرکت (اجباری)
+- موقعیت مکانی (اجباری)
+- نوع شغل (کشویی: تمام وقت، پاره وقت، پروژه‌ای، قراردادی)
+- تجربه مورد نیاز (سال) (اجباری)
+- مهارت‌های کلیدی (جعبه متن، اجباری)
+- مسئولیت‌های اضافی (جعبه متن، اختیاری)
+- مزایا (جعبه متن، اختیاری)
 
-#### Chat Assistant
-- Your Message (textarea, required)
+#### دستیار چت
+- پیام شما (جعبه متن، اجباری)
 
-#### Sentiment Analysis
-- Text to Analyze (textarea, required)
+#### تحلیل احساسات
+- متن برای تحلیل (جعبه متن، اجباری)
 
-## How It Works
+## نحوه کار
 
-### Request Flow
+### جریان درخواست
 
-1. **Form Submission**: User fills out the form and clicks submit
-2. **API Call**: JavaScript sends POST request to `/api/ai-tools/{tool}/input`
-3. **Request ID**: Backend returns a unique request ID
-4. **Polling**: Frontend polls `/api/ai-tools/{tool}/output/{requestId}` every 2 seconds
-5. **Results Display**: When results are ready, they're displayed in the results section
+1. **ارسال فرم**: کاربر فرم را پر کرده و ارسال می‌کند
+2. **فراخوانی API**: JavaScript درخواست POST را به `/api/ai-tools/{tool}/input` ارسال می‌کند
+3. **شناسه درخواست**: بک‌اند یک شناسه درخواست منحصر به فرد را برمی‌گرداند
+4. **نظرسنجی**: فرانت‌اند هر 2 ثانیه یک بار `/api/ai-tools/{tool}/output/{requestId}` را نظرسنجی می‌کند
+5. **نمایش نتایج**: هنگامی که نتایج آماده شدند، در بخش نتایج نمایش داده می‌شوند
 
-### Error Handling
+### مدیریت خطا
 
-- **Validation**: Required fields are validated before submission
-- **Network Errors**: Connection issues are caught and displayed
-- **API Errors**: Backend errors are shown with appropriate messages
-- **Loading States**: Visual feedback during processing
+- **اعتبارسنجی**: فیلدهای مورد نیاز قبل از ارسال اعتبارسنجی می‌شوند
+- **خطاهای شبکه**: مشکلات اتصال شناسایی و نمایش داده می‌شوند
+- **خطاهای API**: خطاهای بک‌اند با پیام‌های مناسب نمایش داده می‌شوند
+- **وضعیت‌های بارگذاری**: بازخورد بصری در طول پردازش
 
-## Customization
+## سفارشی‌سازی
 
-### Adding New Tools
+### افزودن ابزارهای جدید
 
-To add a new AI tool to the interface:
+برای افزودن یک ابزار هوش مصنوعی جدید به رابط:
 
-1. **Add Tool Definition**:
+1. **تعریف ابزار را اضافه کنید**:
    ```javascript
    const newTool = {
        id: 'new-tool-name',
-       title: 'Tool Display Name',
-       description: 'Tool description',
+       title: 'نام نمایشی ابزار',
+       description: 'توضیحات ابزار',
        fields: [
-           { name: 'fieldName', label: 'Field Label', type: 'text', required: true },
-           // Add more fields as needed
+           { name: 'fieldName', label: 'برچسب فیلد', type: 'text', required: true },
+           // فیلدهای بیشتری را در صورت نیاز اضافه کنید
        ]
    };
    ```
 
-2. **Add to Tools Array**:
+2. **به آرایه ابزارها اضافه کنید**:
    ```javascript
    tools.push(newTool);
    ```
 
-### Field Types
+### انواع فیلد
 
-Supported field types:
-- `text`: Single-line text input
-- `textarea`: Multi-line text input
-- `number`: Numeric input
-- `select`: Dropdown with predefined options
+انواع فیلدهای پشتیبانی شده:
+- `text`: ورودی متن تک خطی
+- `textarea`: ورودی متن چند خطی
+- `number`: ورودی عددی
+- `select`: کشویی با گزینه‌های از پیش تعریف شده
 
-### Styling
+### استایل‌دهی
 
-The interface uses CSS Grid and Flexbox for responsive layout. Key classes:
+رابط از CSS Grid و Flexbox برای چیدمان واکنش‌گرا استفاده می‌کند. کلاس‌های کلیدی:
 
-- `.tool-card`: Individual tool cards
-- `.tool-card.active`: Selected tool styling
-- `.test-form`: Form container
-- `.result-section`: Results display area
-- `.btn`: Button styling
+- `.tool-card`: کارت‌های ابزار جداگانه
+- `.tool-card.active`: استایل‌دهی ابزار انتخاب شده
+- `.test-form`: کانتینر فرم
+- `.result-section`: ناحیه نمایش نتایج
+- `.btn`: استایل‌دهی دکمه
 
-## Development
+## توسعه
 
-### File Structure
+### ساختار فایل
 
 ```
 frontend/
 ├── public/
-│   └── index.html          # Main interface file
-├── package.json            # Project configuration
-└── README.md              # This file
+│   └── index.html          # فایل اصلی رابط
+├── package.json            # پیکربندی پروژه
+└── README.md              # این فایل
 ```
 
-### Extending Functionality
+### گسترش عملکرد
 
-The interface can be extended with:
+رابط را می‌توان با موارد زیر گسترش داد:
 
-- **File Upload**: For tools that need document input
-- **Multiple Results**: For tools that return multiple outputs
-- **History**: To save and review previous requests
-- **Export**: To download results in different formats
+- **آپلود فایل**: برای ابزارهایی که نیاز به ورودی سند دارند
+- **نتایج چندگانه**: برای ابزارهایی که چندین خروجی را برمی‌گردانند
+- **تاریخچه**: برای ذخیره و بررسی درخواست‌های قبلی
+- **خروجی گرفتن**: برای دانلود نتایج در فرمت‌های مختلف
 
-### Browser Compatibility
+### سازگاری با مرورگر
 
-The interface uses modern JavaScript features:
-- Fetch API for HTTP requests
-- Async/await for promise handling
-- Template literals for string formatting
+رابط از ویژگی‌های مدرن JavaScript استفاده می‌کند:
+- Fetch API برای درخواست‌های HTTP
+- Async/await برای مدیریت پرامیس‌ها
+- Template literals برای قالب‌بندی رشته‌ها
 - Arrow functions
 
-Supports all modern browsers (Chrome, Firefox, Safari, Edge).
+تمام مرورگرهای مدرن (Chrome, Firefox, Safari, Edge) را پشتیبانی می‌کند.
 
-## Troubleshooting
+## عیب‌یابی
 
-### Common Issues
+### مسائل رایج
 
-1. **CORS Errors**: Ensure the backend has CORS enabled
-2. **Connection Refused**: Check that the backend is running on the correct port
-3. **404 Errors**: Verify the API_BASE_URL matches your backend configuration
-4. **Slow Responses**: Some AI tools may take longer to process
+1. **خطاهای CORS**: اطمینان حاصل کنید که بک‌اند CORS را فعال کرده است
+2. **Connection Refused**: بررسی کنید که بک‌اند روی پورت صحیح اجرا می‌شود
+3. **خطاهای 404**: بررسی کنید که `API_BASE_URL` با پیکربندی بک‌اند شما مطابقت دارد
+4. **پاسخ‌های کند**: برخی از ابزارهای هوش مصنوعی ممکن است زمان بیشتری برای پردازش نیاز داشته باشند
 
-### Debug Mode
+### حالت اشکال‌زدایی
 
-Open browser developer tools (F12) to see:
-- Network requests and responses
-- JavaScript console errors
-- API response details
+ابزارهای توسعه‌دهنده مرورگر (F12) را باز کنید تا موارد زیر را مشاهده کنید:
+- درخواست‌ها و پاسخ‌های شبکه
+- خطاهای کنسول JavaScript
+- جزئیات پاسخ API
 
-## Production Deployment
+## استقرار در تولید
 
-For production use:
+برای استفاده در محیط تولید:
 
-1. **Build Process**: Consider using a build tool for optimization
-2. **CDN**: Serve static files from a CDN for better performance
-3. **HTTPS**: Use HTTPS for secure communication
-4. **Environment Config**: Make API_BASE_URL configurable
+1. **فرآیند ساخت**: استفاده از یک ابزار ساخت برای بهینه‌سازی را در نظر بگیرید
+2. **CDN**: فایل‌های استاتیک را از یک CDN برای عملکرد بهتر ارائه دهید
+3. **HTTPS**: از HTTPS برای ارتباط امن استفاده کنید
+4. **پیکربندی محیط**: `API_BASE_URL` را قابل پیکربندی کنید
 
-## License
+## مجوز
 
-MIT License - same as the main project.
+مجوز MIT - مشابه پروژه اصلی.
 

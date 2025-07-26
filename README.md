@@ -1,53 +1,53 @@
-# Zero Code AI Tools
+# ابزارهای هوش مصنوعی Zero Code
 
-A comprehensive suite of AI-powered tools for HR and recruitment processes, built with Node.js backend and a simple frontend test interface.
+مجموعه‌ای جامع از ابزارهای مبتنی بر هوش مصنوعی برای فرآیندهای منابع انسانی و استخدام، ساخته شده با بک‌اند Node.js و یک رابط تست فرانت‌اند ساده.
 
-## Overview
+## نمای کلی
 
-This project provides 14 different AI tools designed to streamline HR and recruitment workflows:
+این پروژه 14 ابزار هوش مصنوعی مختلف را ارائه می‌دهد که برای ساده‌سازی گردش کار منابع انسانی و استخدام طراحی شده‌اند:
 
-1. **Job Title Optimization** - Optimize job titles for better SEO and candidate attraction
-2. **Job Description Builder** - Create comprehensive and engaging job descriptions
-3. **Global Job Search Assistant** - Search for job opportunities across various platforms
-4. **Job Matching Engine** - Match resumes with job descriptions and provide compatibility scores
-5. **AI Chat Assistant** - Conversational AI support for HR-related queries
-6. **Personalized Message Generator** - Create personalized recruitment messages
-7. **Recruitment Automation** - Automate candidate search and screening processes
-8. **Resume Screening & Analysis** - Analyze and screen resumes automatically
-9. **Interview Simulator** - Generate interview questions for practice and preparation
-10. **New Employee Training Assistant** - Create onboarding and training materials
-11. **One-on-One Meeting Optimizer** - Optimize meeting agendas and discussions
-12. **Sentiment Analysis** - Analyze sentiment in feedback and communications
-13. **Bias Detector in Recruitment** - Detect potential bias in recruitment materials
-14. **Performance Review Assistant** - Assist in writing comprehensive performance reviews
+1. **بهینه‌سازی عنوان شغلی** - بهینه‌سازی عناوین شغلی برای سئو بهتر و جذب کاندیداهای مناسب‌تر
+2. **سازنده شرح شغل** - ایجاد شرح شغل جامع و جذاب
+3. **دستیار جستجوی شغل جهانی** - جستجوی فرصت‌های شغلی در پلتفرم‌های مختلف
+4. **موتور تطبیق شغل** - تطبیق رزومه‌ها با شرح شغل و ارائه امتیازات سازگاری
+5. **دستیار چت هوشمند** - پشتیبانی هوش مصنوعی مکالمه‌ای برای پرسش‌های منابع انسانی
+6. **تولیدکننده پیام شخصی‌سازی شده** - ایجاد پیام‌های استخدام شخصی‌سازی شده
+7. **اتوماسیون جذب نیرو** - خودکارسازی فرآیندهای جستجو و غربالگری کاندیداها
+8. **غربالگری و تحلیل رزومه** - تحلیل و غربالگری خودکار رزومه‌ها
+9. **شبیه‌ساز مصاحبه** - تولید سوالات مصاحبه برای تمرین و آمادگی
+10. **دستیار آموزش کارکنان جدید** - ایجاد مواد آموزشی برای آنبوردینگ و آموزش
+11. **بهینه‌ساز جلسات یک به یک** - بهینه‌سازی دستور کار و بحث‌های جلسات
+12. **تحلیل احساسات** - تحلیل احساسات در بازخوردها و ارتباطات
+13. **تشخیص تعصب در استخدام** - تشخیص تعصبات احتمالی در مواد استخدام
+14. **دستیار بازبینی عملکرد** - کمک به نوشتن بازبینی‌های جامع عملکرد
 
-## Architecture
+## معماری
 
-### Backend
-- **Framework**: Node.js with Express
-- **Database**: PostgreSQL with raw SQL queries
-- **AI Integration**: MetisAI API for natural language processing
-- **Validation**: Joi for request validation
-- **CORS**: Enabled for cross-origin requests
+### بک‌اند
+- **فریم‌ورک**: Node.js با Express
+- **پایگاه داده**: PostgreSQL با کوئری‌های SQL خام
+- **یکپارچه‌سازی هوش مصنوعی**: API متیس‌اِی‌آی (MetisAI) برای پردازش زبان طبیعی
+- **اعتبارسنجی**: Joi برای اعتبارسنجی درخواست‌ها
+- **CORS**: فعال شده برای درخواست‌های بین‌مبدا (cross-origin)
 
-### Frontend
-- **Technology**: Vanilla HTML, CSS, and JavaScript
-- **Purpose**: Test interface for API endpoints
-- **Features**: Interactive forms for each AI tool with real-time results
+### فرانت‌اند
+- **فناوری**: HTML، CSS و JavaScript خالص
+- **هدف**: رابط تست برای نقاط پایانی API
+- **ویژگی‌ها**: فرم‌های تعاملی برای هر ابزار هوش مصنوعی با نتایج بلادرنگ
 
-## Project Structure
+## ساختار پروژه
 
 ```
 zero-code-aitools/
 ├── backend/
 │   ├── src/
 │   │   ├── common/
-│   │   │   ├── database.js          # PostgreSQL connection and utilities
-│   │   │   ├── metis-ai.js          # MetisAI API integration
-│   │   │   └── validation.js        # Request validation schemas
+│   │   │   ├── database.js          # اتصال و ابزارهای PostgreSQL
+│   │   │   ├── metis-ai.js          # یکپارچه‌سازی API متیس‌اِی‌آی
+│   │   │   └── validation.js        # شمای اعتبارسنجی درخواست
 │   │   ├── modules/
 │   │   │   └── ai-tools/
-│   │   │       ├── routes.js        # Main API routes
+│   │   │       ├── routes.js        # مسیرهای اصلی API
 │   │   │       ├── job-title-optimization/
 │   │   │       ├── job-description-builder/
 │   │   │       ├── global-job-search/
@@ -63,101 +63,101 @@ zero-code-aitools/
 │   │   │       ├── bias-detector/
 │   │   │       └── performance-review-assistant/
 │   │   ├── database/
-│   │   │   ├── migration.sql        # Database schema
-│   │   │   └── migrate.js           # Migration runner
-│   │   └── main.js                  # Express server entry point
+│   │   │   ├── migration.sql        # شمای پایگاه داده
+│   │   │   └── migrate.js           # اجراکننده مهاجرت
+│   │   └── main.js                  # نقطه ورود سرور Express
 │   ├── package.json
 │   ├── .env.example
 │   └── README.md
 ├── frontend/
 │   ├── public/
-│   │   └── index.html               # Test interface
+│   │   └── index.html               # رابط تست
 │   ├── package.json
 │   └── README.md
-└── README.md                        # This file
+└── README.md                        # این فایل
 ```
 
-## Quick Start
+## شروع سریع
 
-### Prerequisites
-- Node.js (v14 or higher)
-- PostgreSQL (v12 or higher)
-- MetisAI API key
+### پیش‌نیازها
+- Node.js (نسخه 14 یا بالاتر)
+- PostgreSQL (نسخه 12 یا بالاتر)
+- کلید API متیس‌اِی‌آی (MetisAI)
 
-### Backend Setup
+### راه‌اندازی بک‌اند
 
-1. **Navigate to backend directory**:
+1. **به دایرکتوری بک‌اند بروید**:
    ```bash
    cd backend
    ```
 
-2. **Install dependencies**:
+2. **وابستگی‌ها را نصب کنید**:
    ```bash
    npm install
    ```
 
-3. **Configure environment**:
+3. **پیکربندی محیط**:
    ```bash
    cp .env.example .env
    ```
    
-   Edit `.env` with your configuration:
+   فایل `.env` را با پیکربندی خود ویرایش کنید:
    ```env
    PORT=3000
    NODE_ENV=development
    
-   # Database Configuration
+   # پیکربندی پایگاه داده
    DB_HOST=localhost
    DB_PORT=5432
    DB_USERNAME=postgres
    DB_PASSWORD=your_password
    DB_NAME=zero_code_aitools
    
-   # MetisAI Configuration
+   # پیکربندی MetisAI
    METIS_API_KEY=your_metis_api_key
    METIS_BASE_URL=https://api.metis.ai
    ```
 
-4. **Setup database**:
+4. **راه‌اندازی پایگاه داده**:
    ```bash
-   # Create database
+   # ایجاد پایگاه داده
    createdb zero_code_aitools
    
-   # Run migrations
+   # اجرای مهاجرت‌ها
    node src/database/migrate.js
    ```
 
-5. **Start the server**:
+5. **راه‌اندازی سرور**:
    ```bash
-   # Development
+   # توسعه
    npm run dev
    
-   # Production
+   # تولید
    npm start
    ```
 
-### Frontend Setup
+### راه‌اندازی فرانت‌اند
 
-1. **Navigate to frontend directory**:
+1. **به دایرکتوری فرانت‌اند بروید**:
    ```bash
    cd frontend
    ```
 
-2. **Start the test interface**:
+2. **رابط تست را راه‌اندازی کنید**:
    ```bash
    npm start
    ```
 
-3. **Open in browser**:
+3. **در مرورگر باز کنید**:
    ```
    http://localhost:8080
    ```
 
-## API Usage
+## استفاده از API
 
-Each AI tool follows the same pattern:
+هر ابزار هوش مصنوعی از الگوی یکسانی پیروی می‌کند:
 
-### Submit Input
+### ارسال ورودی
 ```bash
 POST /api/ai-tools/{tool-name}/input
 Content-Type: application/json
@@ -168,19 +168,19 @@ Content-Type: application/json
 }
 ```
 
-**Response**:
+**پاسخ**:
 ```json
 {
   "requestId": "uuid-string"
 }
 ```
 
-### Get Results
+### دریافت نتایج
 ```bash
 GET /api/ai-tools/{tool-name}/output/{requestId}
 ```
 
-**Response** (when ready):
+**پاسخ** (هنگامی که آماده باشد):
 ```json
 {
   "requestId": "uuid-string",
@@ -189,82 +189,84 @@ GET /api/ai-tools/{tool-name}/output/{requestId}
 }
 ```
 
-## Available Tools
+## ابزارهای موجود
 
-### Job Title Optimization
-- **Endpoint**: `job-title-optimization`
-- **Input**: Current job title, industry, experience level, location type, keywords
-- **Output**: Array of optimized job titles
+### بهینه‌سازی عنوان شغلی
+- **نقطه پایانی**: `job-title-optimization`
+- **ورودی**: عنوان شغلی فعلی، صنعت، سطح تجربه، نوع مکان، کلمات کلیدی
+- **خروجی**: آرایه‌ای از عناوین شغلی بهینه‌سازی شده
 
-### Job Description Builder
-- **Endpoint**: `job-description-builder`
-- **Input**: Job details, company info, requirements, benefits
-- **Output**: Complete job description text
+### سازنده شرح شغل
+- **نقطه پایانی**: `job-description-builder`
+- **ورودی**: جزئیات شغل، اطلاعات شرکت، الزامات، مزایا
+- **خروجی**: متن کامل شرح شغل
 
-### Chat Assistant
-- **Endpoint**: `chat-assistant`
-- **Input**: Message and optional conversation history
-- **Output**: AI assistant response
+### دستیار چت
+- **نقطه پایانی**: `chat-assistant`
+- **ورودی**: پیام و تاریخچه مکالمه اختیاری
+- **خروجی**: پاسخ دستیار هوش مصنوعی
 
-### Sentiment Analysis
-- **Endpoint**: `sentiment-analysis`
-- **Input**: Text to analyze
-- **Output**: Overall sentiment and key phrases
+### تحلیل احساسات
+- **نقطه پایانی**: `sentiment-analysis`
+- **ورودی**: متن برای تحلیل
+- **خروجی**: احساسات کلی و عبارات کلیدی
 
-*[Additional tools follow similar patterns]*
+*[ابزارهای اضافی از الگوهای مشابه پیروی می‌کنند]*
 
-## Database Schema
+## شمای پایگاه داده
 
-The database contains input and output tables for each AI tool:
-- Input tables store user requests and parameters
-- Output tables store AI-generated results
-- All tables use UUID primary keys
-- Foreign key relationships link inputs to outputs
+پایگاه داده شامل جداول ورودی و خروجی برای هر ابزار هوش مصنوعی است:
+- جداول ورودی درخواست‌ها و پارامترهای کاربر را ذخیره می‌کنند
+- جداول خروجی نتایج تولید شده توسط هوش مصنوعی را ذخیره می‌کنند
+- تمام جداول از UUID به عنوان کلید اصلی استفاده می‌کنند
+- روابط کلید خارجی ورودی‌ها را به خروجی‌ها پیوند می‌دهند
 
-## Development
+## توسعه
 
-### Adding New Tools
+### افزودن ابزارهای جدید
 
-1. Create controller in `backend/src/modules/ai-tools/{tool-name}/controller.js`
-2. Add validation schema in `backend/src/common/validation.js`
-3. Add routes in `backend/src/modules/ai-tools/routes.js`
-4. Create database tables in migration script
-5. Add frontend form in test interface
+برای افزودن یک ابزار هوش مصنوعی جدید به رابط:
 
-### Testing
+1. کنترلر را در `backend/src/modules/ai-tools/{tool-name}/controller.js` ایجاد کنید
+2. شمای اعتبارسنجی را در `backend/src/common/validation.js` اضافه کنید
+3. مسیرها را در `backend/src/modules/ai-tools/routes.js` اضافه کنید
+4. جداول پایگاه داده را در اسکریپت مهاجرت ایجاد کنید
+5. فرم فرانت‌اند را در رابط تست اضافه کنید
 
-- Use the frontend test interface for manual testing
-- Backend includes health check endpoint: `GET /health`
-- All AI processing is asynchronous with polling-based result retrieval
+### تست
 
-## Deployment
+- از رابط تست فرانت‌اند برای تست دستی استفاده کنید
+- بک‌اند شامل نقطه پایانی بررسی سلامت است: `GET /health`
+- تمام پردازش‌های هوش مصنوعی به صورت ناهمزمان با بازیابی نتایج مبتنی بر نظرسنجی انجام می‌شود
 
-### Backend
-- Server listens on `0.0.0.0` for external access
-- CORS enabled for frontend integration
-- Environment variables for configuration
+## استقرار
 
-### Frontend
-- Static files can be served by any web server
-- Configure API_BASE_URL for different environments
+### بک‌اند
+- سرور برای دسترسی خارجی روی `0.0.0.0` گوش می‌دهد
+- CORS برای یکپارچه‌سازی فرانت‌اند فعال است
+- متغیرهای محیطی برای پیکربندی
 
-## Contributing
+### فرانت‌اند
+- فایل‌های استاتیک را می‌توان توسط هر وب سروری ارائه داد
+- `API_BASE_URL` را برای محیط‌های مختلف پیکربندی کنید
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly using the test interface
-5. Submit a pull request
+## مشارکت
 
-## License
+1. ریپازیتوری را فورک کنید
+2. یک شاخه ویژگی ایجاد کنید
+3. تغییرات خود را اعمال کنید
+4. با استفاده از رابط تست به طور کامل تست کنید
+5. یک درخواست پول (pull request) ارسال کنید
 
-MIT License - see LICENSE file for details
+## مجوز
 
-## Support
+مجوز MIT - برای جزئیات به فایل LICENSE مراجعه کنید
 
-For issues and questions:
-1. Check the README files in backend and frontend directories
-2. Review the API documentation
-3. Test with the provided frontend interface
-4. Check database migration and setup
+## پشتیبانی
+
+برای مسائل و سوالات:
+1. فایل‌های README را در دایرکتوری‌های بک‌اند و فرانت‌اند بررسی کنید
+2. مستندات API را مرور کنید
+3. با رابط فرانت‌اند ارائه شده تست کنید
+4. مهاجرت و راه‌اندازی پایگاه داده را بررسی کنید
 

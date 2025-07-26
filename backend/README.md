@@ -1,77 +1,77 @@
-# Zero Code AI Tools Backend
+# بک‌اند ابزارهای هوش مصنوعی Zero Code
 
-This is the backend service for Zero Code AI Tools, providing REST API endpoints for various AI-powered HR and recruitment tools.
+این سرویس بک‌اند برای ابزارهای هوش مصنوعی Zero Code است که نقاط پایانی REST API را برای ابزارهای مختلف منابع انسانی و استخدام مبتنی بر هوش مصنوعی فراهم می‌کند.
 
-## Features
+## ویژگی‌ها
 
-The backend provides 14 different AI tools:
+بک‌اند 14 ابزار هوش مصنوعی مختلف را ارائه می‌دهد:
 
-1. **Job Title Optimization** - Optimizes job titles for better SEO and candidate attraction
-2. **Job Description Builder** - Creates comprehensive job descriptions
-3. **Global Job Search Assistant** - Searches for job opportunities across platforms
-4. **Job Matching Engine** - Matches resumes with job descriptions
-5. **AI Chat Assistant** - Provides conversational AI support for HR queries
-6. **Personalized Message Generator** - Creates personalized messages for recruitment
-7. **Recruitment Automation** - Automates candidate search and screening
-8. **Resume Screening & Analysis** - Analyzes and screens resumes
-9. **Interview Simulator** - Generates interview questions for practice
-10. **New Employee Training Assistant** - Creates onboarding training materials
-11. **One-on-One Meeting Optimizer** - Optimizes meeting agendas
-12. **Sentiment Analysis** - Analyzes sentiment in feedback and communications
-13. **Bias Detector in Recruitment** - Detects potential bias in recruitment materials
-14. **Performance Review Assistant** - Assists in writing performance reviews
+1. **بهینه‌سازی عنوان شغلی** - عناوین شغلی را برای سئو بهتر و جذب کاندیداهای مناسب‌تر بهینه‌سازی می‌کند
+2. **سازنده شرح شغل** - شرح شغل‌های جامع ایجاد می‌کند
+3. **دستیار جستجوی شغل جهانی** - فرصت‌های شغلی را در پلتفرم‌های مختلف جستجو می‌کند
+4. **موتور تطبیق شغل** - رزومه‌ها را با شرح شغل تطبیق می‌دهد
+5. **دستیار چت هوشمند** - پشتیبانی هوش مصنوعی مکالمه‌ای برای پرسش‌های منابع انسانی فراهم می‌کند
+6. **تولیدکننده پیام شخصی‌سازی شده** - پیام‌های شخصی‌سازی شده برای استخدام ایجاد می‌کند
+7. **اتوماسیون جذب نیرو** - جستجو و غربالگری کاندیداها را خودکار می‌کند
+8. **غربالگری و تحلیل رزومه** - رزومه‌ها را تحلیل و غربالگری می‌کند
+9. **شبیه‌ساز مصاحبه** - سوالات مصاحبه را برای تمرین تولید می‌کند
+10. **دستیار آموزش کارکنان جدید** - مواد آموزشی آنبوردینگ را ایجاد می‌کند
+11. **بهینه‌ساز جلسات یک به یک** - دستور کار جلسات را بهینه‌سازی می‌کند
+12. **تحلیل احساسات** - احساسات را در بازخوردها و ارتباطات تحلیل می‌کند
+13. **تشخیص تعصب در استخدام** - تعصبات احتمالی را در مواد استخدام تشخیص می‌دهد
+14. **دستیار بازبینی عملکرد** - در نوشتن بازبینی‌های عملکرد کمک می‌کند
 
-## Architecture
+## معماری
 
-- **Framework**: Node.js with Express
-- **Database**: PostgreSQL with raw SQL queries
-- **AI Integration**: MetisAI API
-- **Validation**: Joi for request validation
-- **CORS**: Enabled for cross-origin requests
+- **فریم‌ورک**: Node.js با Express
+- **پایگاه داده**: PostgreSQL با کوئری‌های SQL خام
+- **یکپارچه‌سازی هوش مصنوعی**: API متیس‌اِی‌آی (MetisAI)
+- **اعتبارسنجی**: Joi برای اعتبارسنجی درخواست‌ها
+- **CORS**: فعال شده برای درخواست‌های بین‌مبدا (cross-origin)
 
-## Setup
+## راه‌اندازی
 
-1. **Install Dependencies**:
+1. **نصب وابستگی‌ها**:
    ```bash
    npm install
    ```
 
-2. **Environment Configuration**:
-   Copy `.env.example` to `.env` and configure:
+2. **پیکربندی محیط**:
+   فایل `.env.example` را به `.env` کپی کرده و پیکربندی کنید:
    ```bash
    cp .env.example .env
    ```
    
-   Update the following variables:
-   - `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, `DB_NAME` - PostgreSQL connection
-   - `METIS_API_KEY`, `METIS_BASE_URL` - MetisAI API configuration
+   متغیرهای زیر را به‌روزرسانی کنید:
+   - `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD`, `DB_NAME` - اتصال PostgreSQL
+   - `METIS_API_KEY`, `METIS_BASE_URL` - پیکربندی API متیس‌اِی‌آی
 
-3. **Database Setup**:
-   Run the migration to create all necessary tables:
+3. **راه‌اندازی پایگاه داده**:
+   مهاجرت را برای ایجاد تمام جداول لازم اجرا کنید:
    ```bash
    node src/database/migrate.js
    ```
 
-4. **Start the Server**:
+4. **راه‌اندازی سرور**:
    ```bash
-   # Development
+   # توسعه
    npm run dev
    
-   # Production
+   # تولید
    npm start
    ```
 
-## API Endpoints
+## نقاط پایانی API
 
-Each AI tool has two main endpoints:
+هر ابزار هوش مصنوعی دو نقطه پایانی اصلی دارد:
 
-### Input Endpoints (POST)
-- `/api/ai-tools/{tool-name}/input` - Submit input for processing
+### نقاط پایانی ورودی (POST)
+- `/api/ai-tools/{tool-name}/input` - ارسال ورودی برای پردازش
 
-### Output Endpoints (GET)
-- `/api/ai-tools/{tool-name}/output/{requestId}` - Retrieve processed results
+### نقاط پایانی خروجی (GET)
+- `/api/ai-tools/{tool-name}/output/{requestId}` - بازیابی نتایج پردازش شده
 
-### Available Tools:
+### ابزارهای موجود:
 - `job-title-optimization`
 - `job-description-builder`
 - `global-job-search`
@@ -87,16 +87,17 @@ Each AI tool has two main endpoints:
 - `bias-detector`
 - `performance-review-assistant`
 
-### Health Check
-- `GET /health` - Server health status
+### بررسی سلامت
+- `GET /health` - وضعیت سلامت سرور
 
-## Usage Example
+## مثال استفاده
 
-1. **Submit Input**:
+1. **ارسال ورودی**:
    ```bash
    curl -X POST http://localhost:3000/api/ai-tools/job-title-optimization/input \
      -H "Content-Type: application/json" \
-     -d '{
+     -d 
+     '{
        "currentJobTitle": "Software Engineer",
        "industry": "Technology",
        "experienceLevel": "Mid-level",
@@ -105,34 +106,34 @@ Each AI tool has two main endpoints:
      }'
    ```
 
-2. **Get Results**:
+2. **دریافت نتایج**:
    ```bash
    curl http://localhost:3000/api/ai-tools/job-title-optimization/output/{requestId}
    ```
 
-## Database Schema
+## شمای پایگاه داده
 
-The database contains input and output tables for each AI tool:
-- Input tables store user requests and parameters
-- Output tables store AI-generated results
-- All tables use UUID as primary keys
-- Foreign key relationships link inputs to outputs
+پایگاه داده شامل جداول ورودی و خروجی برای هر ابزار هوش مصنوعی است:
+- جداول ورودی درخواست‌ها و پارامترهای کاربر را ذخیره می‌کنند
+- جداول خروجی نتایج تولید شده توسط هوش مصنوعی را ذخیره می‌کنند
+- تمام جداول از UUID به عنوان کلید اصلی استفاده می‌کنند
+- روابط کلید خارجی ورودی‌ها را به خروجی‌ها پیوند می‌دهند
 
-## Error Handling
+## مدیریت خطا
 
-- Input validation using Joi schemas
-- Graceful error handling with appropriate HTTP status codes
-- MetisAI API error handling and fallbacks
-- Database error handling and transaction support
+- اعتبارسنجی ورودی با استفاده از شمای Joi
+- مدیریت خطای مناسب با کدهای وضعیت HTTP مربوطه
+- مدیریت خطا و بازگشت به حالت اولیه API متیس‌اِی‌آی
+- مدیریت خطای پایگاه داده و پشتیبانی از تراکنش
 
-## Development
+## توسعه
 
-- Use `npm run dev` for development with nodemon
-- All AI processing happens asynchronously in the background
-- Results are stored in the database and retrieved via the output endpoints
-- CORS is enabled for frontend integration
+- از `npm run dev` برای توسعه با nodemon استفاده کنید
+- تمام پردازش‌های هوش مصنوعی به صورت ناهمزمان در پس‌زمینه انجام می‌شود
+- نتایج در پایگاه داده ذخیره شده و از طریق نقاط پایانی خروجی بازیابی می‌شوند
+- CORS برای یکپارچه‌سازی فرانت‌اند فعال است
 
-## Deployment
+## استقرار
 
-The server listens on `0.0.0.0` to allow external access and supports CORS for frontend integration.
+سرور روی `0.0.0.0` گوش می‌دهد تا دسترسی خارجی را فراهم کند و از CORS برای یکپارچه‌سازی فرانت‌اند پشتیبانی می‌کند.
 
