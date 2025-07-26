@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Code AI Tools - Test Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            border-color: #4facfe;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card.active {
+            border-color: #00f2fe;
+            background: #e3f2fd;
+        }
+        
+        .tool-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .tool-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .test-form {
+            background: #f1f3f4;
+            padding: 30px;
+            border-top: 1px solid #e0e0e0;
+            display: none;
+        }
+        
+        .test-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            display: none;
+        }
+        
+        .result-section.active {
+            display: block;
+        }
+        
+        .result-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .result-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f44336;
+        }
+        
+        .success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Zero Code AI Tools</h1>
+            <p>رابط تست برای ابزارهای هوش مصنوعی</p>
+        </div>
+        
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools will be populated by JavaScript -->
+        </div>
+        
+        <div class="test-form" id="testForm">
+            <h3>تست ابزار</h3>
+            <div id="formFields">
+                <!-- Form fields will be populated by JavaScript -->
+            </div>
+            <button class="btn" onclick="submitTest()" id="submitBtn">ارسال درخواست</button>
+            <button class="btn" onclick="clearForm()" style="background: #6c757d;">پاک کردن</button>
+            
+            <div class="result-section" id="resultSection">
+                <div class="result-title">نتیجه:</div>
+                <div class="result-content" id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3000/api/ai-tools';
+        
+        const tools = [
+            {
+                id: 'job-title-optimization',
+                title: 'بهینه‌سازی عنوان شغلی',
+                description: 'بهینه‌سازی عناوین شغلی برای جذب کاندیدهای بهتر',
+                fields: [
+                    { name: 'currentJobTitle', label: 'عنوان شغلی فعلی', type: 'text', required: true },
+                    { name: 'industry', label: 'صنعت', type: 'text', required: true },
+                    { name: 'experienceLevel', label: 'سطح تجربه', type: 'select', options: ['مبتدی', 'متوسط', 'پیشرفته', 'ارشد'], required: true },
+                    { name: 'locationType', label: 'نوع مکان', type: 'select', options: ['حضوری', 'دورکاری', 'ترکیبی'], required: true },
+                    { name: 'keywords', label: 'کلمات کلیدی', type: 'text', required: false }
+                ]
+            },
+            {
+                id: 'job-description-builder',
+                title: 'سازنده شرح شغل',
+                description: 'ایجاد شرح شغل جامع و جذاب',
+                fields: [
+                    { name: 'jobTitle', label: 'عنوان شغل', type: 'text', required: true },
+                    { name: 'companyName', label: 'نام شرکت', type: 'text', required: true },
+                    { name: 'location', label: 'موقعیت مکانی', type: 'text', required: true },
+                    { name: 'jobType', label: 'نوع شغل', type: 'select', options: ['تمام وقت', 'پاره وقت', 'پروژه‌ای', 'قراردادی'], required: true },
+                    { name: 'requiredExperience', label: 'تجربه مورد نیاز (سال)', type: 'number', required: true },
+                    { name: 'keySkills', label: 'مهارت‌های کلیدی', type: 'textarea', required: true },
+                    { name: 'additionalResponsibilities', label: 'مسئولیت‌های اضافی', type: 'textarea', required: false },
+                    { name: 'benefits', label: 'مزایا', type: 'textarea', required: false }
+                ]
+            },
+            {
+                id: 'chat-assistant',
+                title: 'دستیار چت هوشمند',
+                description: 'دستیار هوش مصنوعی برای پاسخ به سوالات منابع انسانی',
+                fields: [
+                    { name: 'message', label: 'پیام شما', type: 'textarea', required: true }
+                ]
+            },
+            {
+                id: 'sentiment-analysis',
+                title: 'تحلیل احساسات',
+                description: 'تحلیل احساسات در متون و بازخوردها',
+                fields: [
+                    { name: 'text', label: 'متن برای تحلیل', type: 'textarea', required: true }
+                ]
+            }
+        ];
+        
+        let currentTool = null;
+        let currentRequestId = null;
+        
+        function initializeTools() {
+            const toolsGrid = document.getElementById('toolsGrid');
+            toolsGrid.innerHTML = '';
+            
+            tools.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+                toolCard.onclick = () => selectTool(tool);
+                
+                toolCard.innerHTML = `
+                    <div class="tool-title">${tool.title}</div>
+                    <div class="tool-description">${tool.description}</div>
+                `;
+                
+                toolsGrid.appendChild(toolCard);
+            });
+        }
+        
+        function selectTool(tool) {
+            // Remove active class from all cards
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Add active class to selected card
+            event.target.closest('.tool-card').classList.add('active');
+            
+            currentTool = tool;
+            showTestForm(tool);
+        }
+        
+        function showTestForm(tool) {
+            const testForm = document.getElementById('testForm');
+            const formFields = document.getElementById('formFields');
+            
+            formFields.innerHTML = '';
+            
+            tool.fields.forEach(field => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group';
+                
+                let inputHTML = '';
+                if (field.type === 'select') {
+                    inputHTML = `<select name="${field.name}" ${field.required ? 'required' : ''}>
+                        <option value="">انتخاب کنید...</option>
+                        ${field.options.map(option => `<option value="${option}">${option}</option>`).join('')}
+                    </select>`;
+                } else if (field.type === 'textarea') {
+                    inputHTML = `<textarea name="${field.name}" placeholder="${field.label}" ${field.required ? 'required' : ''}></textarea>`;
+                } else {
+                    inputHTML = `<input type="${field.type}" name="${field.name}" placeholder="${field.label}" ${field.required ? 'required' : ''}>`;
+                }
+                
+                formGroup.innerHTML = `
+                    <label>${field.label} ${field.required ? '*' : ''}</label>
+                    ${inputHTML}
+                `;
+                
+                formFields.appendChild(formGroup);
+            });
+            
+            testForm.classList.add('active');
+            document.getElementById('resultSection').classList.remove('active');
+        }
+        
+        async function submitTest() {
+            if (!currentTool) return;
+            
+            const formData = new FormData();
+            const inputs = document.querySelectorAll('#formFields input, #formFields textarea, #formFields select');
+            const data = {};
+            
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.required && !input.value.trim()) {
+                    input.style.borderColor = '#f44336';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#ddd';
+                    if (input.type === 'number') {
+                        data[input.name] = parseInt(input.value) || 0;
+                    } else {
+                        data[input.name] = input.value;
+                    }
+                }
+            });
+            
+            if (!isValid) {
+                showResult('لطفاً تمام فیلدهای اجباری را پر کنید.', 'error');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'در حال پردازش...';
+            
+            try {
+                // Submit input
+                const response = await fetch(`${API_BASE_URL}/${currentTool.id}/input`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                currentRequestId = result.requestId;
+                
+                showResult('درخواست ارسال شد. در حال انتظار برای نتیجه...', 'loading');
+                
+                // Poll for results
+                pollForResults();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showResult(`خطا در ارسال درخواست: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ارسال درخواست';
+            }
+        }
+        
+        async function pollForResults() {
+            if (!currentRequestId || !currentTool) return;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/${currentTool.id}/output/${currentRequestId}`);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    showResult(JSON.stringify(result, null, 2), 'success');
+                } else if (response.status === 404) {
+                    // Still processing, try again in 2 seconds
+                    setTimeout(pollForResults, 2000);
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+            } catch (error) {
+                console.error('Error polling results:', error);
+                showResult(`خطا در دریافت نتیجه: ${error.message}`, 'error');
+            }
+        }
+        
+        function showResult(content, type) {
+            const resultSection = document.getElementById('resultSection');
+            const resultContent = document.getElementById('resultContent');
+            
+            resultContent.textContent = content;
+            resultContent.className = `result-content ${type}`;
+            resultSection.classList.add('active');
+        }
+        
+        function clearForm() {
+            document.querySelectorAll('#formFields input, #formFields textarea, #formFields select').forEach(input => {
+                input.value = '';
+                input.style.borderColor = '#ddd';
+            });
+            document.getElementById('resultSection').classList.remove('active');
+            currentRequestId = null;
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTools();
+        });
+    </script>
+</body>
+</html>
+

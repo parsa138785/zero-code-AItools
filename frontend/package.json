@@ -1,0 +1,19 @@
+{
+  "name": "zero-code-aitools-frontend",
+  "version": "1.0.0",
+  "description": "Frontend test interface for Zero Code AI Tools",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "dev": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "ai",
+    "tools",
+    "frontend",
+    "test"
+  ],
+  "author": "Zero Code Team",
+  "license": "MIT"
+}
+
