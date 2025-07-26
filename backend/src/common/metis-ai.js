@@ -3,7 +3,7 @@ const axios = require('axios');
 class MetisAIService {
   constructor() {
     this.apiKey = process.env.METIS_API_KEY;
-    this.baseURL = process.env.METIS_BASE_URL || 'https://api.metis.ai';
+    this.baseURL = process.env.METIS_BASE_URL || 'https://api.metisai.ir/v1';
     
     if (!this.apiKey) {
       console.warn('METIS_API_KEY not found in environment variables');
